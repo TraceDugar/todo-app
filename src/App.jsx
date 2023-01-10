@@ -1,4 +1,6 @@
 import React from 'react';
+import { useContext } from 'react';
+import { settingsContext } from './'
 
 import ToDo from './Components/ToDo/ToDo';
 
