@@ -5,6 +5,7 @@
 ## Collaborators
 
 - Hunter Fehr
+- Kenny Lino
 
 ## Links and Resources
 
@@ -16,6 +17,11 @@
 
 #### Features and Routes
 
+- Feature 1: Once a page has 3 items a new page is generated via Pagination.
+
 #### Tests
+
+- tests are ran with Jest
+- tests list and app components
 
 #### UML

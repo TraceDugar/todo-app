@@ -1,3 +1,4 @@
+import React from 'react';
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 
@@ -5,7 +6,7 @@ import SettingsProvider, { SettingsContext } from './index';
 
 describe('Settings Context', () => {
   test('initial state loads as expected', () => {
-    render(
+    render (
       <>
         <SettingsProvider>
           <SettingsContext.Consumer>
