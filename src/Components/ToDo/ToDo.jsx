@@ -1,9 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import useForm from '../../hooks/form.js';
 
 import { v4 as uuid } from 'uuid';
+import { SettingsContext } from '../../Context/Settings/index.jsx';
+import List from '../List/index';
 
 const ToDo = () => {
+
+  // const { showComplete, pageItems, sort } = useContext(SettingsContext);
 
   const [defaultValues] = useState({
     difficulty: 4,
@@ -75,16 +79,7 @@ const ToDo = () => {
           <button type="submit">Add Item</button>
         </label>
       </form>
-
-      {list.map(item => (
-        <div key={item.id}>
-          <p>{item.text}</p>
-          <p><small>Assigned to: {item.assignee}</small></p>
-          <p><small>Difficulty: {item.difficulty}</small></p>
-          <div onClick={() => toggleComplete(item.id)}>Complete: {item.complete.toString()}</div>
-          <hr />
-        </div>
-      ))}
+    <List list={list} toggleComplete={toggleComplete}/>
 
     </>
   );
