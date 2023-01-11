@@ -1,13 +1,14 @@
 import React from 'react';
-import { useContext } from 'react';
-import { settingsContext } from './'
 
+import Header from './Components/Header/index';
 import ToDo from './Components/ToDo/ToDo';
 
 export default class App extends React.Component {
   render() {
     return (
-      <ToDo />
+      <>
+      <Header />
+      <ToDo /></>
     );
   }
 }

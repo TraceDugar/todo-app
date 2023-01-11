@@ -2,27 +2,20 @@
 
 ## Author: Trace Dugar
 
-## Collaborators:
+## Collaborators
 
 - Hunter Fehr
-
 
 ## Links and Resources
 
 - [Github Repo](https://github.com/TraceDugar/todo-app)
 
-#### Running Applications
+### Running Applications
 
 - `npm start`
 
-
 #### Features and Routes
-
 
 #### Tests
 
-
 #### UML
-
-
-
