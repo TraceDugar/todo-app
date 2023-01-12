@@ -1,14 +1,22 @@
 import React from 'react';
-
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from './Components/Header/index';
 import ToDo from './Components/ToDo/ToDo';
+import SettingsForm from './Components/SettingsForm/SettingsForm'
 
 export default class App extends React.Component {
   render() {
     return (
       <>
-      <Header />
-      <ToDo /></>
+        <BrowserRouter>
+          <Header />
+          <Routes>
+            <Route path="/" element={<ToDo/>}/>
+            <Route path="/settings" element={<SettingsForm/>}/>
+          </Routes>
+          <ToDo />
+        </BrowserRouter>
+      </>
     );
   }
 }

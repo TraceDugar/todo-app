@@ -1,24 +1,30 @@
-import { Text, createStyles } from '@mantine/core';
+import { createStyles, Group } from '@mantine/core';
+import { Link } from "react-router-dom";
 
 const useStyles = createStyles((theme) => ({
   header: {
     backgroundColor: theme.colors.blue[7],
-    padding: theme.spacing.xl,
-    fonstSize: theme.fontSizes.xl,
+    padding: theme.spacing.md,
+  },
+  link: {
+    fonstSize: theme.fontSizes.md,
     color: theme.colors.gray[0],
+    textDecoration: 'none',
   }
 }))
 
 const Header = () => {
-  
+
   const { classes } = useStyles();
   return (
     <>
       <header className={classes.header}>
-        <Text>Home</Text>
+        <Group>
+          <Link className={classes.link} to="/" default >Home</Link>
+          <Link className={classes.link} to="/settings" default >Settings</Link>
+        </Group>
       </header>
     </>
-
   )
 }
 

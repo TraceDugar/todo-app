@@ -7,7 +7,7 @@ import List from '../List/index';
 
 const ToDo = () => {
 
-  // const { showComplete, pageItems, sort } = useContext(SettingsContext);
+  const { showComplete, pageItems, sort } = useContext(SettingsContext);
 
   const [defaultValues] = useState({
     difficulty: 4,
