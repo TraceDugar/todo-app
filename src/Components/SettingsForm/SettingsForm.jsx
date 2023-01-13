@@ -26,6 +26,7 @@ const SettingsForm = () => {
     setPageItems,
     sort,
     setSort,
+    saveLocally,
   } = useContext(SettingsContext)
 
   const { classes } = useStyles();
@@ -33,6 +34,7 @@ const SettingsForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     setShow(true);
+    saveLocally();
   }
 
   return (
@@ -41,11 +43,11 @@ const SettingsForm = () => {
       <Grid style={{ width: '80%', margin: 'auto' }}>
         <Grid.Col xs={12} sm={6}>
           <Card withBorder p="xs">
-            <Card.Section>
+            <Card.Section p="xs">
               <Text>Updated Settings</Text>
               <form onSubmit={handleSubmit}>
                 <Switch
-                  label="Show Completed Todos"
+                  label="Show Complete Todos"
                   checked={showComplete}
                   onChange={(e) => setShowComplete(e.currentTarget.checked)}
                 />

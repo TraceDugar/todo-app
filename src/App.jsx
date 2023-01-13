@@ -13,8 +13,7 @@ export default class App extends React.Component {
           <Routes>
             <Route path="/" element={<ToDo/>}/>
             <Route path="/settings" element={<SettingsForm/>}/>
-          </Routes>
-          <ToDo />
+          </Routes>  
         </BrowserRouter>
       </>
     );
