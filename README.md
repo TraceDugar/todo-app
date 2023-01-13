@@ -20,7 +20,9 @@
 #### Features and Routes
 
 - Feature 1: Once a page has 3 items a new page is generated via Pagination.
-- Feature 2: Settings page added, with settings that are persisted in local storage.
+- Feature 2: Add settings page
+- Feature 3: Add ability to control items per page in settings page
+
 
 #### Tests
 
