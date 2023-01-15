@@ -7,9 +7,13 @@ import Auth from '../Auth';
 
 const List = ({ list, toggleComplete, deleteItem }) => {
 
+  // Hooks for Role Based Access Control and Pagination 
+
   const { can, isLoggedIn } = useContext(AuthContext);
   const { showComplete, pageItems } = useContext(SettingsContext);
   const [page, setPage] = useState(1);
+
+  // Logic for Pagination
 
   const listToRender = showComplete ? list : list.filter(item => !item.complete);
   const listStart = pageItems * (page - 1);
@@ -17,14 +21,19 @@ const List = ({ list, toggleComplete, deleteItem }) => {
   const pageCount = Math.ceil(listToRender.length / pageItems);
   const displayList = listToRender.slice(listStart, listEnd);
 
-
   return (
     <>
       {
         displayList.map(item => (
+
+          // To Do Item cards
+
           <Card key={item._id} withBorder shadow="md" mb="sm" >
             <Card.Section withBorder >
               <Group position="apart">
+
+                {/* Pending / Complete Button */}
+
                 <Group>
                   <If condition={isLoggedIn && can('update')}>
                     <Then>
@@ -49,6 +58,9 @@ const List = ({ list, toggleComplete, deleteItem }) => {
                   </If>
                   <Text>{item.assignee}</Text>
                 </Group>
+
+                {/* X Button that deletes the To Do Items */}
+
                 <Auth capability="delete">
                   <CloseButton
                     title="Close Item"
@@ -57,10 +69,11 @@ const List = ({ list, toggleComplete, deleteItem }) => {
                 </Auth>
               </Group>
             </Card.Section>
+
+            {/* Card Body Text */}
+
             <Text mt="sm">{item.text}</Text>
             <Text align="right" >Difficulty: {item.difficulty}</Text>
-
-
           </Card>
         ))}
 

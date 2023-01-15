@@ -2,11 +2,13 @@ import { useContext } from "react";
 import { AuthContext } from "../../Context/Auth";
 import { When } from 'react-if';
 
-const Auth = ({capability, children}) => {
+// Authorization Logic which is passed down to children
+
+const Auth = ({ capability, children }) => {
   const { can, isLoggedIn } = useContext(AuthContext);
-  return(
+  return (
     <When condition={isLoggedIn && can(capability)}>
-      { children }
+      {children}
     </When>
   )
 };

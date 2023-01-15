@@ -1,7 +1,5 @@
 import '@testing-library/jest-dom';
 import { fireEvent, screen, render } from '@testing-library/react';
-import Auth from '../Components/Auth';
-import Login from '../Components/Login';
 import AuthProvider, { AuthContext } from '../Context/Auth';
 
 describe('Auth Integration', () => {

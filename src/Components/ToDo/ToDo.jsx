@@ -1,11 +1,13 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import useForm from '../../hooks/form.js';
 import { Button, Card, createStyles, Grid, Slider, Text, TextInput } from '@mantine/core';
 
-import { SettingsContext } from '../../Context/Settings/index.jsx';
+// import { SettingsContext } from '../../Context/Settings/index.jsx';
 import List from '../List/index';
 import Auth from '../Auth/index.jsx';
 import axios from 'axios';
+
+// To Do Styling
 
 const useStyles = createStyles((theme) => ({
   h1: {
@@ -25,7 +27,7 @@ const ToDo = () => {
 
   const { classes } = useStyles();
 
-  const { showComplete, pageItems, sort } = useContext(SettingsContext);
+  //  Hooks
 
   const [defaultValues] = useState({
     difficulty: 3,
@@ -33,6 +35,8 @@ const ToDo = () => {
   const [list, setList] = useState([]);
   const [incomplete, setIncomplete] = useState([]);
   const { handleChange, handleSubmit } = useForm(addItem, defaultValues);
+
+  // Create Functionality
 
   async function addItem(item) {
     item.complete = false;
@@ -47,15 +51,20 @@ const ToDo = () => {
     setList([...list, response.data]);
   };
 
-  async function deleteItem(id) {
+  // Delete Functionality
+
+  async function deleteItem(_id) {
     const config = {
-      url: `/todo/${id}`,
+      url: `/todo/${_id}`,
       baseURL: 'https://api-js401.herokuapp.com/api/v1',
       method: 'delete',
     }
     const response = await axios(config)
+    console.log(response.data)
     getList();
   };
+
+  // Update functionality for Complete / Pending Toggle
 
   async function toggleComplete(item) {
     const complete = !item.complete
@@ -71,6 +80,8 @@ const ToDo = () => {
 
   };
 
+  // Read Functionality
+
   async function getList() {
     const config = {
       url: '/todo',
@@ -81,6 +92,8 @@ const ToDo = () => {
     setList(response.data.results);
   };
 
+  // Functionality for total number of to do item in header bar on homepage
+
   useEffect(() => {
     let incompleteCount = list.filter(item => !item.complete).length;
     setIncomplete(incompleteCount);
@@ -89,6 +102,8 @@ const ToDo = () => {
     // disable code used to avoid linter warning 
     // eslint-disable-next-line react-hooks/exhaustive-deps 
   }, [list]);
+
+  // Get Method
 
   useEffect(() => {
     (async () => {
@@ -113,23 +128,32 @@ const ToDo = () => {
             <Card withBorder>
               <form onSubmit={handleSubmit}>
 
+                {/* To Do items Detail Form */}
+
                 <h2>Add To Do Item</h2>
+
+
+                {/* To do Item Name */}
 
                 <TextInput
                   name="text"
                   placeholder="Item Details"
                   onChange={handleChange}
-                  label="To Do Item"
+                  label="To Do Item :"
                 />
+
+                {/* To Do Item Is assigned to this person */}
 
                 <TextInput
                   name="assignee"
-                  placeholder="Assignee Name"
+                  placeholder="Name"
                   onChange={handleChange}
-                  label="Assignee To"
+                  label="Assigned To :"
                 />
 
-                <Text>Difficulty</Text>
+                {/* Difficulty level slider */}
+
+                <Text>Difficulty Level</Text>
                 <Slider
                   name="Difficulty"
                   onChange={handleChange}
@@ -141,6 +165,9 @@ const ToDo = () => {
 
                 <Button type="submit">Add Item</Button>
               </form>
+
+              {/*  To Do Item forms */}
+
             </Card>
           </Grid.Col>
         </Auth>

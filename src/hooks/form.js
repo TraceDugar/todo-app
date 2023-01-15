@@ -1,17 +1,21 @@
 import { useState, useEffect } from 'react';
 
-const useForm = (callback, defaultValues={}) => {
+const useForm = (callback, defaultValues = {}) => {
+
+  // Hooks
 
   const [values, setValues] = useState({});
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    callback({...values});
+    callback({ ...values });
   };
+
+  // Slider Logic
 
   const handleChange = (event) => {
     let name, value;
-    if(typeof(event) === 'object'){
+    if (typeof (event) === 'object') {
       name = event.target.name;
       value = event.target.value;
     } else {
@@ -30,8 +34,8 @@ const useForm = (callback, defaultValues={}) => {
     setValues(values => ({ ...values, [name]: value }));
   };
 
-  useEffect( () => {
-    setValues( defaultValues );
+  useEffect(() => {
+    setValues(defaultValues);
   }, [defaultValues]);
 
   return {

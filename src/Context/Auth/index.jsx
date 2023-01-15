@@ -5,6 +5,8 @@ import cookie from 'react-cookies';
 
 export const AuthContext = React.createContext();
 
+// Auth Hooks
+
 const AuthProvider = ({ children }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [user, setUser] = useState({});
@@ -13,6 +15,8 @@ const AuthProvider = ({ children }) => {
   const can = (capability) => {
     return user?.capabilities?.includes(capability)
   };
+
+  // Token Validation
 
   const _validateToken = (token) => {
     try {
@@ -27,6 +31,8 @@ const AuthProvider = ({ children }) => {
       console.error(e);
     }
   };
+
+  // Login Logic
 
   const login = async (username, password) => {
     const config = {
@@ -49,6 +55,8 @@ const AuthProvider = ({ children }) => {
     }
   };
 
+  // Logout Logic
+
   const logout = () => {
     setUser({});
     setIsLoggedIn(false);
@@ -57,7 +65,7 @@ const AuthProvider = ({ children }) => {
 
   useEffect(() => {
     let token = cookie.load('auth');
-    if(token){
+    if (token) {
       _validateToken(token);
     }
   }, []);
