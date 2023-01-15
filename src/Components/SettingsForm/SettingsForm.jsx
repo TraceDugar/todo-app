@@ -1,7 +1,8 @@
-// import { IconSettings } from '@tabler/icons';
-import { createStyles, Grid, Card, Switch, Text, NumberInput, TextInput, Button } from '@mantine/core';
+import { IconSettings } from '@tabler/icons';
+import { createStyles, Grid, Card, Switch, NumberInput, Text, TextInput, Button } from '@mantine/core';
 import { useContext, useState } from 'react';
 import { SettingsContext } from '../../Context/Settings';
+import { When } from 'react-if';
 
 const useStyles = createStyles((theme) => ({
   h1: {
@@ -9,11 +10,14 @@ const useStyles = createStyles((theme) => ({
     color: theme.colors.gray[0],
     width: '80%',
     margin: 'auto',
-    fontSize: theme.fontSizes.lg,
+    fontSize: theme.fontSizes.xxl,
     padding: theme.spacing.md,
     marginBottom: theme.spacing.md,
     marginTop: theme.spacing.md,
-  }
+  },
+  h2: {
+    fontSize: theme.fontSizes.lg,
+  },
 }));
 
 const SettingsForm = () => {
@@ -39,12 +43,12 @@ const SettingsForm = () => {
 
   return (
     <>
-      <h1 className={classes.h1} > Manage Settings</h1>
+      <h1 className={classes.h1} ><IconSettings /> Manage Settings</h1>
       <Grid style={{ width: '80%', margin: 'auto' }}>
         <Grid.Col xs={12} sm={6}>
           <Card withBorder p="xs">
             <Card.Section p="xs">
-              <Text>Updated Settings</Text>
+              <h2 className={classes.h2} >Update Settings</h2>
               <form onSubmit={handleSubmit}>
                 <Switch
                   label="Show Complete Todos"
@@ -69,7 +73,16 @@ const SettingsForm = () => {
           </Card>
         </Grid.Col>
         <Grid.Col xs={12} sm={6}>
-
+          <When condition={show}>
+            <Card withBorder p="sm">
+              <Card.Section>
+                <Text m="xl" fontSize="xl" weight="bold">Update Settings</Text>
+              </Card.Section>
+              <Text m="sm">{showComplete ? 'Show' : 'Hide' } Completed Items</Text>
+              <Text m="sm">Items Per Page {pageItems}</Text>
+              <Text m="sm"></Text>
+            </Card>
+          </When>
         </Grid.Col>
       </Grid>
     </>
