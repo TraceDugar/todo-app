@@ -4,6 +4,8 @@ export const SettingsContext = React.createContext();
 
 const SettingsProvider = ({ children }) => {
 
+  // Settings Hooks
+
   const [showComplete, setShowComplete] = useState(false);
   const [pageItems, setPageItems] = useState(3);
   const [sort, setSort] = useState('difficulty');

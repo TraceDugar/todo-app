@@ -2,6 +2,8 @@ import { createStyles, Group } from '@mantine/core';
 import { Link } from "react-router-dom";
 import Login from "../Login"
 
+// Styling for the Navbar / Header
+
 const useStyles = createStyles((theme) => ({
   header: {
     backgroundColor: theme.colors.blue[7],
@@ -21,6 +23,9 @@ const Header = () => {
     <>
       <header className={classes.header}>
         <Group position='apart'>
+
+          {/* Navigation Routes in Navbar / Header */}
+
           <Group>
             <Link className={classes.link} to="/" default >Home</Link>
             <Link className={classes.link} to="/settings" default >Settings</Link>

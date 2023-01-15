@@ -7,9 +7,14 @@
 - Hunter Fehr
 - Kenny Lino
 
+## Description
+
+This to do list app features Role based access controls, allowing Editors to Add, and update to dos, and admins can also do this along with deleteing the to do list items.
+IT has a settings page that allows the number of to do items displayed per page
+
 ## Links and Resources
 
-- [Github Repo](https://github.com/TraceDugar/todo-app)
+- [Github Repo](https://github.com/TraceDugar/todo-app) \
 
 - [Live Deployment](https://todo-app-traced.onrender.com)
 
@@ -17,9 +22,11 @@
 
 - `npm start`
 
-READ ONLY: username:     user                 password: USER     Role: User
-READ, POST, UPDATE:      username: editor     password: EDITOR   Role: Editor
-READ, POST, ADD, DELETE: username: admin      password: ADMIN    Role: Administrator
+- READ ONLY:               username: user       password: USER     Role: User
+
+- READ, POST, UPDATE:      username: editor     password: EDITOR   Role: Editor
+
+- READ, POST, ADD, DELETE: username: admin      password: ADMIN    Role: Administrator
 
 #### Features and Routes
 
@@ -39,7 +46,16 @@ READ, POST, ADD, DELETE: username: admin      password: ADMIN    Role: Administr
 - tests are ran with Jest
 - tests list and app components
 
-#### UML
+#### UML / Diagrams
 
-Pagination
-![Pagination UML](assets/ToDo-Pagination.jpg)
+Role Base Access Control
+![RBAC UML](assets/Auth_and_RBAC.jpg)
+
+Settings Page Functionality
+![Settings Diagram](assets/todoSettings.jpg)
+
+To Do Item Input Form
+![To Do Input Form](assets/ToDo-Item-Form.jpg)
+
+To Do Cards Area
+![To Do Cards Diagram](assets/ToDo-Pagination.jpg)
