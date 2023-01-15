@@ -14,7 +14,7 @@ IT has a settings page that allows the number of to do items displayed per page
 
 ## Links and Resources
 
-- [Github Repo](https://github.com/TraceDugar/todo-app) \
+- [Github Repo](https://github.com/TraceDugar/todo-app)
 
 - [Live Deployment](https://todo-app-traced.onrender.com)
 
@@ -22,13 +22,13 @@ IT has a settings page that allows the number of to do items displayed per page
 
 - `npm start`
 
-- READ ONLY:               username: user       password: USER     Role: User
+- READ ONLY:      |         username: user   |    password: USER  |   Role: User ||
 
-- READ, POST, UPDATE:      username: editor     password: EDITOR   Role: Editor
+- READ, POST, UPDATE:  |    username: editor  |   password: EDITOR  |  Role: Editor ||
 
-- READ, POST, ADD, DELETE: username: admin      password: ADMIN    Role: Administrator
+- READ, POST, ADD, DELETE: | username: admin   |   password: ADMIN  |   Role: Administrator ||
 
-#### Features and Routes
+### Features and Routes
 
 - Feature 1: Once a page has 3 items a new page is generated via Pagination.
 - Feature 2: Add settings page.
