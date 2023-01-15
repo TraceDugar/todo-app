@@ -9,8 +9,8 @@
 
 ## Description
 
-This to do list app features Role based access controls, allowing Editors to Add, and update to dos, and admins can also do this along with deleteing the to do list items.
-IT has a settings page that allows the number of to do items displayed per page
+This to do list app features Role based access controls, allowing Editors to Add, and update to dos. Admins can also do this along with deleteing the to do list items.
+It has a settings page that allows the number of to do items displayed per page, the ability to hide completed to do items.
 
 ## Links and Resources
 
