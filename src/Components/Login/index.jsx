@@ -1,5 +1,5 @@
 import { useContext, useState } from 'react';
-import { Button, Group, PasswordInput, Text, TextInput } from '@mantine/core';
+import { Button, Group, TextInput } from '@mantine/core';
 import { If, Then, Else } from 'react-if';
 import { AuthContext } from '../../Context/Auth';
 
@@ -24,6 +24,10 @@ const Login = () => {
             <TextInput
               onChange={(e) => setUsername(e.target.value)}
               placeholder='Username'
+            />
+            <TextInput
+              onChange={(e) => setPassword(e.target.value)}
+              placeholder='Password'
             />
             <Button color='gray.8' onClick={() => login(username, password)}>Login</Button>
           </Group>

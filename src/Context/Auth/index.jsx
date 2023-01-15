@@ -1,6 +1,7 @@
-import React, { useState }from "react";
-import jwtDecode from 'jwt-decode';
+import React, { useEffect, useState } from "react";
+import jwt_decode from 'jwt-decode';
 import axios from 'axios';
+import cookie from 'react-cookies';
 
 export const AuthContext = React.createContext();
 
@@ -15,11 +16,11 @@ const AuthProvider = ({ children }) => {
 
   const _validateToken = (token) => {
     try {
-      let validUser = jwtDecode(token);
+      let validUser = jwt_decode(token);
       if (validUser) {
         setUser(validUser);
         setIsLoggedIn(true);
-        console.log('We in.');
+        cookie.save('auth', token);
       }
     } catch (e) {
       setError(e);
@@ -28,17 +29,16 @@ const AuthProvider = ({ children }) => {
   };
 
   const login = async (username, password) => {
-    let authCredentials = [username];
-
-    let config = {
-      baseUrl: 'https://api-js401.herokuapp.com',
+    const config = {
       url: '/signin',
+      baseURL: 'https://api-js401.herokuapp.com/',
       method: 'post',
       auth: { username, password }
     }
 
-    let response = await axios(config);
+    const response = await axios(config);
     const { token } = response.data;
+
     if (token) {
       try {
         _validateToken(token);
@@ -52,7 +52,15 @@ const AuthProvider = ({ children }) => {
   const logout = () => {
     setUser({});
     setIsLoggedIn(false);
+    cookie.remove('auth');
   };
+
+  useEffect(() => {
+    let token = cookie.load('auth');
+    if(token){
+      _validateToken(token);
+    }
+  }, []);
 
   const values = {
     user,
