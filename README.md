@@ -50,7 +50,7 @@ It has a settings page that allows the number of to do items displayed per page,
 Role Base Access Control
 ![RBAC UML](assets/Auth_and_RBAC.jpg)
 
-Login Page
+## Login Page: Login Details displayed in green blocks here
 ![Login Page](assets/labled_loginPage.jpg)
 
 Home Page
