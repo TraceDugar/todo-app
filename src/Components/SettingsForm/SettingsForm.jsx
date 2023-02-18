@@ -1,14 +1,17 @@
 import { IconSettings } from '@tabler/icons';
-import { createStyles, Grid, Card, Switch, NumberInput, Text, TextInput, Button } from '@mantine/core';
+import { createStyles, Grid, Card, Switch, NumberInput, Text, Button } from '@mantine/core';
 import { useContext, useState } from 'react';
 import { SettingsContext } from '../../Context/Settings';
 import { When } from 'react-if';
 
-// Styling for the settings form
 
+// This is Where The settings page is
+
+
+// Styling for the settings form
 const useStyles = createStyles((theme) => ({
   h1: {
-    backgroundColor: theme.colors.gray[8],
+    backgroundColor: theme.colors.teal[8],
     color: theme.colors.gray[0],
     width: '80%',
     margin: 'auto',
@@ -25,15 +28,12 @@ const useStyles = createStyles((theme) => ({
 const SettingsForm = () => {
 
   // Settings Form Logic / Hook
-
   const [show, setShow] = useState(false);
 
   const { showComplete,
     setShowComplete,
     pageItems,
     setPageItems,
-    sort,
-    setSort,
     saveLocally,
   } = useContext(SettingsContext)
 
@@ -50,21 +50,20 @@ const SettingsForm = () => {
       <h1 className={classes.h1} ><IconSettings /> Manage Settings</h1>
       <Grid style={{ width: '80%', margin: 'auto' }}>
         <Grid.Col xs={12} sm={6}>
-          <Card withBorder p="xs">
+          <Card withBorder p="xs" style={{ backgroundColor: '#FCC419' }}>
             <Card.Section p="xs">
               <h2 className={classes.h2} >Update Settings</h2>
               <form onSubmit={handleSubmit}>
 
                 {/* Switch for showing / hiding to do items */}
-
                 <Switch
+                  color='teal.8'
                   label="Show Completed Items"
                   checked={showComplete}
                   onChange={(e) => setShowComplete(e.currentTarget.checked)}
                 />
 
                 {/* Control for toggling number of Todo items per page */}
-
                 <NumberInput
                   mb="sm"
                   value={pageItems}
@@ -72,25 +71,19 @@ const SettingsForm = () => {
                   onChange={(value) => setPageItems(value)}
                 />
 
-                {/* Sort Keyword Input */}
-
-                <TextInput
-                  mb="sm"
-                  placeholder={sort}
-                  onChange={(e) => setSort(e.target.value)}
-                  label="Sort Keyword"
-                />
-                <Button type="submit">Show New Settings</Button>
+                {/* This button allows the user to see what the current settings are */}
+                <Button type="submit" color="teal.8">Show New Settings</Button>
 
                 {/* Updated Settings Show when clicked , elements are below */}
-
               </form>
             </Card.Section>
           </Card>
         </Grid.Col>
         <Grid.Col xs={12} sm={6}>
           <When condition={show}>
-            <Card withBorder p="sm">
+
+            {/* This is the card that shows what the current settings are whenevre the button is pressed */}
+            <Card withBorder p="sm" style={{ backgroundColor: '#FCC419' }}>
               <Card.Section>
                 <Text m="xl" fontSize="xl" weight="bold">Updated Settings</Text>
               </Card.Section>

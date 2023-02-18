@@ -5,7 +5,6 @@
 ## Collaborators
 
 - Hunter Fehr
-- Kenny Lino
 
 ## Description
 
@@ -51,11 +50,11 @@ It has a settings page that allows the number of to do items displayed per page,
 Role Base Access Control
 ![RBAC UML](assets/Auth_and_RBAC.jpg)
 
+Login Page
+![Login Page](assets/labled_loginPage.jpg)
+
+Home Page
+![Home Page](assets/labeled_homePage.jpg)
+
 Settings Page Functionality
-![Settings Diagram](assets/todoSettings.jpg)
-
-To Do Item Input Form
-![To Do Input Form](assets/ToDo-Item-Form.jpg)
-
-To Do Cards Area
-![To Do Cards Diagram](assets/ToDo-Pagination.jpg)
+![Settings Page](assets/labeled_toDoSettings.jpg)
