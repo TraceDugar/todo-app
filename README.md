@@ -47,14 +47,14 @@ It has a settings page that allows the number of to do items displayed per page,
 
 #### UML / Diagrams
 
-Role Base Access Control
+## Role Base Access Control
 ![RBAC UML](assets/Auth_and_RBAC.jpg)
 
 ## Login Page: Login Details displayed in green blocks here
 ![Login Page](assets/labled_loginPage.jpg)
 
-Home Page
+## Home Page
 ![Home Page](assets/labeled_homePage.jpg)
 
-Settings Page Functionality
+## Settings Page Functionality
 ![Settings Page](assets/labeled_toDoSettings.jpg)
