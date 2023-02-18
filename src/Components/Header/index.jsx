@@ -3,10 +3,9 @@ import { Link } from "react-router-dom";
 import Login from "../Login"
 
 // Styling for the Navbar / Header
-
 const useStyles = createStyles((theme) => ({
   header: {
-    backgroundColor: theme.colors.blue[7],
+    backgroundColor: theme.colors.gray[8],
     padding: theme.spacing.md,
   },
   link: {
@@ -25,9 +24,12 @@ const Header = () => {
         <Group position='apart'>
 
           {/* Navigation Routes in Navbar / Header */}
-
           <Group>
+
+            {/* Home Route */}
             <Link className={classes.link} to="/" default >Home</Link>
+
+            {/* Settings Route */}
             <Link className={classes.link} to="/settings" default >Settings</Link>
           </Group>
           <Login />

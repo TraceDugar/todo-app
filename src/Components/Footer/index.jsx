@@ -1,7 +1,6 @@
 import { Text } from '@mantine/core';
 
 // Footer 
-
 const Footer = () => {
   return (
     <footer style={{ width: '80%', margin: 'auto' }}>

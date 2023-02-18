@@ -5,8 +5,9 @@ import cookie from 'react-cookies';
 
 export const AuthContext = React.createContext();
 
-// Auth Hooks
+// This is where the authentication is handled within the app
 
+// Auth Hooks
 const AuthProvider = ({ children }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [user, setUser] = useState({});
@@ -17,7 +18,6 @@ const AuthProvider = ({ children }) => {
   };
 
   // Token Validation
-
   const _validateToken = (token) => {
     try {
       let validUser = jwt_decode(token);
@@ -33,7 +33,6 @@ const AuthProvider = ({ children }) => {
   };
 
   // Login Logic
-
   const login = async (username, password) => {
     const config = {
       url: '/signin',
@@ -56,7 +55,6 @@ const AuthProvider = ({ children }) => {
   };
 
   // Logout Logic
-
   const logout = () => {
     setUser({});
     setIsLoggedIn(false);
@@ -79,6 +77,7 @@ const AuthProvider = ({ children }) => {
     logout,
   };
 
+  // Auth Provider being passed to Child components
   return (
     <AuthContext.Provider value={values}>
       {children}
